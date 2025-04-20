@@ -1,0 +1,42 @@
+# macOS specific
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# CMake build files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+build/
+
+# Compiled object files
+*.o
+*.obj
+*.lo
+*.la
+
+# Executables and libraries
+*.exe
+*.out
+*.app
+*.dylib
+*.so
+*.a
+*.lib
+
+# Logs and temporary files
+*.log
+*.tmp
+*.swp
+*.swo
+*.bak
+*.orig
+
+# IDE specific
+.idea/
+.vscode/
+*.code-workspace
+
+# Other
+tags
