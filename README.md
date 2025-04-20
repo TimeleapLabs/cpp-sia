@@ -1,5 +1,3 @@
-// README.md
-
 # Sia C++ Serialization Library
 
 This is a modern C++17+ port of the original Go-based `sia` serialization library. It provides a compact, efficient API for serializing and deserializing primitive types, strings, byte arrays, big integers, and custom arrays.
