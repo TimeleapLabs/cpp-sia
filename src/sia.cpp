@@ -1,4 +1,3 @@
-// src/sia.cpp
 #include "sia/sia.hpp"
 #include "sia/sia_impl.hpp"
 #include <memory>
