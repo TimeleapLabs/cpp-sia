@@ -8,7 +8,7 @@ public:
   std::shared_ptr<Array<T>>
   loop(const std::vector<T> &array,
        const std::function<void(std::shared_ptr<Array<T>>, const T &)> &fn) {
-    auto self = std::static_pointer_cast<Array<T>>(this->shared_from_this());
+    auto self = std::static_pointer_cast<ArraySiaImpl<T>>(shared_from_this());
     for (const auto &item : array)
       fn(self, item);
     return self;
@@ -17,7 +17,8 @@ public:
   std::vector<T> read(uint64_t length,
                       const std::function<T(std::shared_ptr<Array<T>>)> &fn) {
     std::vector<T> out;
-    auto self = std::static_pointer_cast<Array<T>>(this->shared_from_this());
+    auto self =
+        std::static_pointer_cast<ArraySiaImpl<T>>(this->shared_from_this());
     for (uint64_t i = 0; i < length; ++i)
       out.push_back(fn(self));
     return out;
