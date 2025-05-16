@@ -1,31 +1,45 @@
-# macOS specific
+# macOS system files
 .DS_Store
 .AppleDouble
 .LSOverride
 
-# CMake build files
+# CMake build folders and files
+/build/
 CMakeFiles/
 CMakeCache.txt
 cmake_install.cmake
 Makefile
-build/
 
-# Compiled object files
+# CMake FetchContent/dependencies
+_deps/
+build/_deps/
+
+# Compiled object files and binaries
 *.o
 *.obj
 *.lo
 *.la
-
-# Executables and libraries
+*.a
+*.so
+*.dylib
+*.lib
 *.exe
 *.out
 *.app
-*.dylib
-*.so
-*.a
-*.lib
 
-# Logs and temporary files
+# Manually built local binaries (from top-level)
+sia
+sia_tests
+
+# Catch2 intermediate build folders
+catch2-*
+tests/catch2-*
+
+# IDE specific
+.idea/
+.vscode/
+*.code-workspace
+
 *.log
 *.tmp
 *.swp
@@ -33,10 +47,5 @@ build/
 *.bak
 *.orig
 
-# IDE specific
-.idea/
-.vscode/
-*.code-workspace
-
-# Other
+# Others
 tags

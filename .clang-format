@@ -1,0 +1,4 @@
+---
+BasedOnStyle: Chromium
+BinPackParameters: true
+ExperimentalAutoDetectBinPacking: true

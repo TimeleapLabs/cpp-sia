@@ -13,4 +13,4 @@ bool SiaImpl::ReadBool() {
   return content[index++] != 0;
 }
 
-} // namespace sia
+}  // namespace sia

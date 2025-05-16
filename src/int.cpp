@@ -1,5 +1,5 @@
-#include "sia/sia_impl.hpp"
 #include <cstdint>
+#include "sia/sia_impl.hpp"
 
 namespace sia {
 
@@ -18,18 +18,24 @@ std::shared_ptr<Sia> SiaImpl::AddInt16(int16_t n) {
   return AddUInt16(static_cast<uint16_t>(n));
 }
 
-int16_t SiaImpl::ReadInt16() { return static_cast<int16_t>(ReadUInt16()); }
+int16_t SiaImpl::ReadInt16() {
+  return static_cast<int16_t>(ReadUInt16());
+}
 
 std::shared_ptr<Sia> SiaImpl::AddInt32(int32_t n) {
   return AddUInt32(static_cast<uint32_t>(n));
 }
 
-int32_t SiaImpl::ReadInt32() { return static_cast<int32_t>(ReadUInt32()); }
+int32_t SiaImpl::ReadInt32() {
+  return static_cast<int32_t>(ReadUInt32());
+}
 
 std::shared_ptr<Sia> SiaImpl::AddInt64(int64_t n) {
   return AddUInt64(static_cast<uint64_t>(n));
 }
 
-int64_t SiaImpl::ReadInt64() { return static_cast<int64_t>(ReadUInt64()); }
+int64_t SiaImpl::ReadInt64() {
+  return static_cast<int64_t>(ReadUInt64());
+}
 
-} // namespace sia
+}  // namespace sia
