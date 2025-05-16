@@ -5,9 +5,9 @@
 TEST_CASE("Sia: Signed integers", "[int]") {
   auto s = sia::New();
   s->AddInt8(-42)
-   ->AddInt16(-12345)
-   ->AddInt32(-987654321)
-   ->AddInt64(-123456789012345LL);
+      ->AddInt16(-12345)
+      ->AddInt32(-987654321)
+      ->AddInt64(-123456789012345LL);
   auto r = sia::NewFromBytes(s->Bytes());
 
   REQUIRE(r->ReadInt8() == -42);

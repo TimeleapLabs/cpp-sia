@@ -1,6 +1,6 @@
-#include "sia/sia_impl.hpp"
 #include <cstddef>
 #include <cstdint>
+#include "sia/sia_impl.hpp"
 
 namespace sia {
 
@@ -59,4 +59,4 @@ uint64_t SiaImpl::ReadUInt64() {
   return n;
 }
 
-} // namespace sia
+}  // namespace sia

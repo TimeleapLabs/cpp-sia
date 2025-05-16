@@ -1,38 +1,34 @@
 #define CATCH_CONFIG_MAIN
 #include <catch2/catch_test_macros.hpp>
 #include <sia/array.hpp>
+#include <sia/sia.hpp>
 #include <string>
 
-//TODO:fix array instantiations
+TEST_CASE("Sia: Array<int> round-trip", "[array][int]") {
+  auto s = sia::New();
+  std::vector<int> data = {10, 20, 30, 40};
 
-// TEST_CASE("Sia: Array<int> round-trip", "[array][int]") {
-//   auto s = sia::NewArray<int>();
-//   std::vector<int> data = {10, 20, 30, 40};
+  sia::AddArray8<int>(s, data,
+                      [](auto self, const int& x) { self->AddInt8(x); });
 
-//   s->AddArray8(data, [](auto self, const int &x) {
-//     self->AddInt(x);
-//   });
+  auto r = sia::NewFromBytes(s->Bytes());
+  auto out = sia::ReadArray8<int>(
+      r, [](auto self) -> int { return self->ReadInt8(); });
 
-//   auto r = sia::NewArrayFromBytes<int>(s->Bytes());
-//   auto out = r->ReadArray8([](auto self) -> int {
-//     return self->ReadInt();
-//   });
+  REQUIRE(out == data);
+}
 
-//   REQUIRE(out == data);
-// }
+TEST_CASE("Sia: Array<string> round-trip", "[array][string]") {
+  auto s = sia::New();
+  std::vector<std::string> data = {"foo", "bar", "baz"};
 
-// TEST_CASE("Sia: Array<string> round-trip", "[array][string]") {
-//   auto s = sia::NewArray<std::string>();
-//   std::vector<std::string> data = {"foo", "bar", "baz"};
+  sia::AddArray8<std::string>(s, data, [](auto self, const std::string& str) {
+    self->AddString8(str);
+  });
 
-//   s->AddArray8(data, [](auto self, const std::string &str) {
-//     self->AddString(str);
-//   });
+  auto r = sia::NewFromBytes(s->Bytes());
+  auto out = sia::ReadArray8<std::string>(
+      r, [](auto self) -> std::string { return self->ReadString8(); });
 
-//   auto r = sia::NewArrayFromBytes<std::string>(s->Bytes());
-//   auto out = r->ReadArray8([](auto self) -> std::string {
-//     return self->ReadString();
-//   });
-
-//   REQUIRE(out == data);
-// }
+  REQUIRE(out == data);
+}

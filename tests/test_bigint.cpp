@@ -16,7 +16,7 @@ TEST_CASE("Sia: BigInt serialization", "[bigint]") {
   BigInt big = BigInt("1234567890123456789012345678901234567890");
 #else
   // Fallback mode: manually construct a byte vector (little-endian)
-  BigInt big = {0xD2, 0x02, 0x96, 0x49}; // Just a mock example
+  BigInt big = {0xD2, 0x02, 0x96, 0x49};  // Just a mock example
 #endif
 
   s->AddBigInt(big);
@@ -26,6 +26,6 @@ TEST_CASE("Sia: BigInt serialization", "[bigint]") {
 #ifdef SIA_USE_BOOST
   REQUIRE(out == big);
 #else
-  REQUIRE(out == big); // vector<uint8_t> comparison
+  REQUIRE(out == big);  // vector<uint8_t> comparison
 #endif
 }

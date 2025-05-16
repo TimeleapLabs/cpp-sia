@@ -9,10 +9,7 @@ TEST_CASE("Sia: String serialization", "[string]") {
   std::string s32 = "this is a longer string for 32";
   std::string s64 = std::string(300, 'z');
 
-  s->AddString8(s8)
-   ->AddString16(s16)
-   ->AddString32(s32)
-   ->AddString64(s64);
+  s->AddString8(s8)->AddString16(s16)->AddString32(s32)->AddString64(s64);
 
   auto r = sia::NewFromBytes(s->Bytes());
 

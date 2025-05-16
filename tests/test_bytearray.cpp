@@ -10,9 +10,9 @@ TEST_CASE("Sia: Byte array serialization", "[bytearray]") {
   std::vector<uint8_t> b64(300, 0xBB);
 
   s->AddByteArray8(b8)
-   ->AddByteArray16(b16)
-   ->AddByteArray32(b32)
-   ->AddByteArray64(b64);
+      ->AddByteArray16(b16)
+      ->AddByteArray32(b32)
+      ->AddByteArray64(b64);
 
   auto r = sia::NewFromBytes(s->Bytes());
 

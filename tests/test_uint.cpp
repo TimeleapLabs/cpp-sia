@@ -5,9 +5,9 @@
 TEST_CASE("Sia: Unsigned integers", "[uint]") {
   auto s = sia::New();
   s->AddUInt8(255)
-   ->AddUInt16(65000)
-   ->AddUInt32(4294960000U)
-   ->AddUInt64(18446744073709551600ULL);
+      ->AddUInt16(65000)
+      ->AddUInt32(4294960000U)
+      ->AddUInt64(18446744073709551600ULL);
   auto r = sia::NewFromBytes(s->Bytes());
 
   REQUIRE(r->ReadUInt8() == 255);
