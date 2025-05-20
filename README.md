@@ -70,19 +70,13 @@ std::string str = reader->ReadString8();
 #include <sia/array.hpp>
 
 // Serialize an array of integers
-std::vector<int> numbers = {1, 2, 3, 4};
-auto arraySia = sia::NewArray<int>();
-arraySia->AddArray8(numbers, [](auto s, int item) {
-  s->AddInt32(item);
-});
-
-std::vector<uint8_t> bytes = arraySia->Bytes();
+auto s = sia::New();
+std::vector<int> data = {10, 20, 30, 40};
+sia::AddArray8<int>(s, data, [](auto self, const int& item) { self->AddInt32(item); });
 
 // Deserialize
-auto reader = sia::NewArrayFromBytes<int>(bytes);
-auto decoded = reader->ReadArray8([](auto s) {
-  return s->ReadInt32();
-});
+auto r = sia::NewFromBytes(s->Bytes());
+auto out = sia::ReadArray8<int>(r, [](auto self) -> int { return self->ReadInt32(); });
 ```
 
 ## 🧪 Supported Types
